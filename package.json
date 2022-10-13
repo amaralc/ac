@@ -8,9 +8,12 @@
     "test": "nx test"
   },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@module-federation/nextjs-mf": "^5.9.10"
+  },
   "devDependencies": {
     "@nrwl/cli": "14.8.4",
+    "@nrwl/next": "^14.8.4",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "14.8.4",
     "nx": "14.8.4",
