@@ -6,7 +6,7 @@ const NextFederationPlugin = require('@module-federation/nextjs-mf');
 const remotes = isServer => {
   const location = isServer ? 'ssr' : 'chunks';
   return {
-    profile: `profile@http://localhost:4201/_next/static/${location}/remoteEntry.js`,
+    profile: `profile@${process.env.NEXT_PUBLIC_REMOTE_URL_PROFILE}/_next/static/${location}/remoteEntry.js`,
   };
 };
 
