@@ -14,7 +14,7 @@
           "test",
           "e2e"
         ],
-        "accessToken": "YTllYjE3OWUtZDM2NC00YjlmLTk3NjgtNDAxYTkzZmVhMTMyfHJlYWQtd3JpdGU="
+        "accessToken": "{NX_CLOUD_ACCESS_TOKEN}"
       }
     }
   },
