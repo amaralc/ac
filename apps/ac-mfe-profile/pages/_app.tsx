@@ -1,4 +1,4 @@
-import { AppProps } from 'next/app';
+import App, { AppProps } from 'next/app';
 import Head from 'next/head';
 import './styles.css';
 
@@ -8,11 +8,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to ac-mfe-profile!</title>
       </Head>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
     </>
   );
 }
+
+CustomApp.getInitialProps = async (ctx) => {
+  const appProps = await App.getInitialProps(ctx);
+  return appProps;
+};
 
 export default CustomApp;
