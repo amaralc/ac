@@ -1,13 +1,17 @@
-import { revalidate } from '@module-federation/nextjs-mf/utils';
+// import { revalidate } from '@module-federation/nextjs-mf/utils';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    ctx.res.on('finish', () => {
-      revalidate().then(shouldReload => {
-        // do whatever else
-      });
-    });
+
+    // // Lines 1 and 8 to 12 were commented due to error described in docs/module-federation.md#errors
+    // ctx.res.on('finish', () => {
+    //   revalidate().then(shouldReload => {
+    //     // do whatever else
+    //   });
+    // });
+
+
     // const remotes = await flushChunks(process.env.REMOTES);
     const initialProps = await Document.getInitialProps(ctx);
     return {
