@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/web:rollup",
+      "executor": "@nrwl/rollup:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/ui/shared",
@@ -34,7 +34,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ui/shared"],
+      "outputs": ["{workspaceRoot}/coverage/libs/ui/shared"],
       "options": {
         "jestConfig": "libs/ui/shared/jest.config.ts",
         "passWithNoTests": true

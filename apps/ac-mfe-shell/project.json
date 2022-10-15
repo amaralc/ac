@@ -46,7 +46,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ac-mfe-shell"],
+      "outputs": ["{workspaceRoot}/coverage/apps/ac-mfe-shell"],
       "options": {
         "jestConfig": "apps/ac-mfe-shell/jest.config.ts",
         "passWithNoTests": true
