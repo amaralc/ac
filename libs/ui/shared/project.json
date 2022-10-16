@@ -39,6 +39,13 @@
         "jestConfig": "libs/ui/shared/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "component-test": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/ui/shared/cypress.config.ts",
+        "testingType": "component"
+      }
     }
   }
 }
