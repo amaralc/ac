@@ -14,6 +14,20 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
+  /**
+   * Page Extensions
+   *
+   * https://github.com/vercel/next.js/issues/3728#issuecomment-895568757
+   * https://nextjs.org/docs/api-reference/next.config.js/custom-page-extensions
+   */
+   pageExtensions: [
+    'page.tsx',
+    'page.ts',
+    'page.jsx',
+    'page.js',
+    'page.md',
+    'page.mdx',
+  ],
   webpack(config, options) {
     config.plugins.push(
       //@ts-ignore --> TODO
