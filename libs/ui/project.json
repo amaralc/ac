@@ -1,7 +1,7 @@
 {
-  "name": "ui-shared",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ui/shared/src",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "ui",
+  "sourceRoot": "libs/ui/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -9,16 +9,16 @@
       "executor": "@nrwl/rollup:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/ui/shared",
-        "tsConfig": "libs/ui/shared/tsconfig.lib.json",
-        "project": "libs/ui/shared/package.json",
-        "entryFile": "libs/ui/shared/src/index.ts",
+        "outputPath": "dist/libs/ui",
+        "tsConfig": "libs/ui/tsconfig.lib.json",
+        "project": "libs/ui/package.json",
+        "entryFile": "libs/ui/src/index.ts",
         "external": ["@emotion/react/jsx-runtime"],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "swc",
         "assets": [
           {
-            "glob": "libs/ui/shared/README.md",
+            "glob": "libs/ui/README.md",
             "input": ".",
             "output": "."
           }
@@ -29,21 +29,21 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/ui/shared/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/ui/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/ui/shared"],
+      "outputs": ["{workspaceRoot}/coverage/libs/ui"],
       "options": {
-        "jestConfig": "libs/ui/shared/jest.config.ts",
+        "jestConfig": "libs/ui/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "component-test": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "libs/ui/shared/cypress.config.ts",
+        "cypressConfig": "libs/ui/cypress.config.ts",
         "testingType": "component"
       }
     },
@@ -53,7 +53,7 @@
         "uiFramework": "@storybook/react",
         "port": 4400,
         "config": {
-          "configFolder": "libs/ui/shared/.storybook"
+          "configFolder": "libs/ui/.storybook"
         }
       },
       "configurations": {
@@ -69,7 +69,7 @@
         "uiFramework": "@storybook/react",
         "outputPath": "dist/storybook/ui-shared",
         "config": {
-          "configFolder": "libs/ui/shared/.storybook"
+          "configFolder": "libs/ui/.storybook"
         }
       },
       "configurations": {
