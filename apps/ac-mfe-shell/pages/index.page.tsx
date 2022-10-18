@@ -1,4 +1,4 @@
-import { IHeroSection } from '@ac/ui-shared/components/HeroSection/types';
+import { IHeroSection } from '@ac/ui-shared/lib/components/HeroSection/types';
 import styled from '@emotion/styled';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';

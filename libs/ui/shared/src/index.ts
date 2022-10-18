@@ -1,4 +1,4 @@
-import { HeroSection } from './lib/HeroSection';
+import { HeroSection } from './lib/components/HeroSection';
 
 module.exports = {
   HeroSection: HeroSection,
