@@ -1,4 +1,4 @@
-import { HeroSection } from '../../../shared/src/components/HeroSection';
+import { HeroSection } from '../../../ui/src/lib/modules/shared/components/HeroSection';
 
 describe('HeroSection.cy.ts', () => {
   it('should navigate user to remote', () => {

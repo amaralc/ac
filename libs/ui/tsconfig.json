@@ -1,5 +1,5 @@
 {
-  "extends": "../../../tsconfig.base.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
@@ -24,6 +24,9 @@
     },
     {
       "path": "./cypress/tsconfig.cy.json"
+    },
+    {
+      "path": "./.storybook/tsconfig.json"
     }
   ]
 }

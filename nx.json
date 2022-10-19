@@ -13,7 +13,8 @@
           "lint",
           "test",
           "e2e",
-          "component-test"
+          "component-test",
+          "build-storybook"
         ],
         "accessToken": "{NX_CLOUD_ACCESS_TOKEN}"
       }
@@ -35,6 +36,9 @@
     },
     "component-test": {
       "inputs": ["default", "^production"]
+    },
+    "build-storybook": {
+      "inputs": ["default", "^production", "{workspaceRoot}/.storybook/**/*"]
     }
   },
   "namedInputs": {
@@ -47,7 +51,9 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/cypress/**/*",
       "!{projectRoot}/**/*.cy.[jt]s?(x)",
-      "!{projectRoot}/cypress.config.[jt]s"
+      "!{projectRoot}/cypress.config.[jt]s",
+      "!{projectRoot}/.storybook/**/*",
+      "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)"
     ],
     "sharedGlobals": ["{workspaceRoot}/babel.config.json"]
   },

@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ac/ui-shared/*": ["libs/ui/shared/src/*"]
+      "@ac/ui/*": ["libs/ui/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

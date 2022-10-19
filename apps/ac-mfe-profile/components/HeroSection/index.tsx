@@ -1,2 +1,2 @@
-import { HeroSection } from '@ac/ui-shared/components/HeroSection';
+import { HeroSection } from '@ac/ui/modules/shared/components/HeroSection';
 export default HeroSection;
