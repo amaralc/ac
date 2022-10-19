@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 export const StyledHeroSectionCard = styled(Card)(({ theme }) => ({
   height: 200,
   margin: 'auto',
-  backgroundColor: '#000',
+  backgroundColor: '#33f',
   borderRadius: theme.spacing(3),
   color: '#fff',
   display: 'flex',
