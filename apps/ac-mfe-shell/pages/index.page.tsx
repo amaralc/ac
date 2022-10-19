@@ -15,6 +15,7 @@ const HeroSection: IHeroSection = dynamic(() => import('profile/HeroSection'), {
 });
 
 export const getStaticProps = () => {
+  console.log('static');
   const remoteUrl = process.env['NEXT_PUBLIC_REMOTE_URL_PROFILE'] as string;
   return {
     props: {

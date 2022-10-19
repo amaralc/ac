@@ -7,7 +7,7 @@ export const HeroSection: IHeroSection = ({ remoteUrl }) => {
     <Link href={remoteUrl}>
       <a href={remoteUrl}>
         <StyledHeroSectionCard>
-          This content is comming from {remoteUrl}
+          This information is comming from {remoteUrl}
         </StyledHeroSectionCard>
       </a>
     </Link>
