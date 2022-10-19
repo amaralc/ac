@@ -13,4 +13,5 @@ export default defineConfig({
       bundler: 'webpack',
     },
   },
+  projectId: 'h5f96j',
 });
