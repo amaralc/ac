@@ -14,5 +14,5 @@ jobs:
       #   with:
       #     node-version: '16'
       # https://docs.cypress.io/guides/continuous-integration/github-actions#What-you-ll-learn
-      - uses: cypress-io/github-action@v2
+      - uses: cypress-io/github-action@v4.2.0
       - run: bash libs/ui/scripts/nx-component-tests.sh
