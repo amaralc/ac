@@ -1,0 +1,16 @@
+name: nx-test-ui-components
+run-name: ${{ github.actor }} is running component tests
+on:
+  pull_request:
+    branches: [production]
+    types: [opened, synchronize]
+
+jobs:
+  test-ui-components:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: bash libs/ui/scripts/nx-component-tests.sh
