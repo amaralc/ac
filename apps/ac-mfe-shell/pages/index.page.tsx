@@ -39,6 +39,12 @@ export function Index({ title, remoteUrl }) {
       <StyledPage>
         <div className="wrapper">
           <div className="container">
+            <div style={{ border: '1px solid red' }}>
+              <p>
+                The component below was rendered from code that is exposed in{' '}
+                {remoteUrl}
+              </p>
+            </div>
             <Suspense>
               <HeroSection remoteUrl={remoteUrl} />
             </Suspense>
