@@ -1,3 +1,21 @@
 table:
   name: accounts
   schema: public
+object_relationships:
+  - name: account
+    using:
+      foreign_key_constraint_on: parent_account_id
+  - name: agent
+    using:
+      foreign_key_constraint_on: owner_agent_id
+  - name: currencyByCurrency
+    using:
+      foreign_key_constraint_on: currency
+array_relationships:
+  - name: accounts
+    using:
+      foreign_key_constraint_on:
+        column: parent_account_id
+        table:
+          name: accounts
+          schema: public
