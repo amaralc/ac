@@ -1,0 +1,10 @@
+table:
+  name: transactions
+  schema: public
+object_relationships:
+  - name: account
+    using:
+      foreign_key_constraint_on: destination_account_id
+  - name: accountByOriginAccountId
+    using:
+      foreign_key_constraint_on: origin_account_id

@@ -1,3 +1,4 @@
 - "!include public_accounts.yaml"
 - "!include public_agents.yaml"
 - "!include public_currencies.yaml"
+- "!include public_transactions.yaml"

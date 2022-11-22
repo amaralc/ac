@@ -19,3 +19,17 @@ array_relationships:
         table:
           name: accounts
           schema: public
+  - name: transactions
+    using:
+      foreign_key_constraint_on:
+        column: destination_account_id
+        table:
+          name: transactions
+          schema: public
+  - name: transactionsByOriginAccountId
+    using:
+      foreign_key_constraint_on:
+        column: origin_account_id
+        table:
+          name: transactions
+          schema: public
