@@ -1,0 +1,43 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "flow-mfe-transactions",
+  "sourceRoot": "apps/flow-mfe-transactions",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/ac-mfe-shell",
+        "outputPath": "dist/apps/ac-mfe-shell"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/ac-mfe-shell"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ac-mfe-shell:build",
+        "dev": true,
+        "port": 4200
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ac-mfe-shell:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "ac-mfe-shell:build:production",
+          "dev": false
+        }
+      }
+    }
+  },
+  "tags": []
+}
