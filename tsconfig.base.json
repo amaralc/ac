@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ac/data/*": ["libs/data/src/*"],
       "@ac/ui/*": ["libs/ui/src/lib/*"]
     }
   },
