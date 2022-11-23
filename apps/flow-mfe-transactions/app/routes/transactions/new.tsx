@@ -1,20 +1,24 @@
-import { ActionFunction } from '@remix-run/node';
+import { createTransaction } from '@ac/data/modules/flow/services/createTransaction';
+import { getAccountsByAgentName } from '@ac/data/modules/flow/services/getAccounts';
+import { IGetAccountsResponseData } from '@ac/data/modules/flow/services/getAccounts/types';
+import { ActionFunction, LoaderFunction } from '@remix-run/node';
+import { useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 import { zfd } from 'zod-form-data';
 
-const createTransaction = async (data: Record<string, any>) => {
-  console.log('data', data);
-};
+// const createTransaction = async (data: Record<string, any>) => {
+//   console.log('data', data);
+// };
 
 export const action: ActionFunction = async ({ request }) => {
+  const data = await request.formData();
   const schema = zfd.formData({
-    origin: zfd.text(),
-    destination: zfd.text(),
+    originAccountId: zfd.text(z.string().uuid()),
+    destinationAccountId: zfd.text(z.string().uuid()),
     value: zfd.numeric(z.number().min(0)),
-    description: zfd.text(),
   });
   try {
-    const formData = schema.parse(await request.formData());
+    const formData = schema.parse(data);
     console.log('newTransaction', formData);
     await createTransaction(formData);
     return null;
@@ -24,38 +28,54 @@ export const action: ActionFunction = async ({ request }) => {
   }
 };
 
+export const loader: LoaderFunction = async ({}) => {
+  try {
+    const accounts = await getAccountsByAgentName('ac');
+    return accounts;
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+};
+
 export default function TransactionPage() {
+  const accounts = useLoaderData<IGetAccountsResponseData['accounts']>();
   return (
     /**
      * For usage with index files @see https://github.com/remix-run/remix/issues/2726#issuecomment-1302346573
      */
     <form method="post" action="/transactions/new" id="new-transaction">
       <p>
-        <label htmlFor="origin">Origin:</label>
-        <select name="origin" id="origin" form="new-transaction">
-          <option value="account-1">account-1</option>
-          <option value="account-2">account-2</option>
-          <option value="account-3">account-3</option>
+        <label htmlFor="origin_account_id">Origin:</label>
+        <select
+          name="origin_account_id"
+          id="origin_account_id"
+          form="new-transaction"
+        >
+          {accounts.map((account) => (
+            <option value={account.id} key={account.id}>
+              {account.name}
+            </option>
+          ))}
         </select>
       </p>
       <p>
-        <label htmlFor="destination">Destination:</label>
-        <select name="destination" id="destination" form="new-transaction">
-          <option value="account-1">account-1</option>
-          <option value="account-2">account-2</option>
-          <option value="account-3">account-3</option>
+        <label htmlFor="destination_account_id">Destination:</label>
+        <select
+          name="destination_account_id"
+          id="destination_account_id"
+          form="new-transaction"
+        >
+          {accounts.map((account) => (
+            <option value={account.id} key={account.id}>
+              {account.name}
+            </option>
+          ))}
         </select>
       </p>
       <p>
         <label>
           Value: <input name="value" type="number" min={0} />
-        </label>
-      </p>
-      <p>
-        <label>
-          Description:
-          <br />
-          <textarea name="description" />
         </label>
       </p>
       <p>
