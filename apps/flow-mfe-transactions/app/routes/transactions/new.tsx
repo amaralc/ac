@@ -6,15 +6,11 @@ import { useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 import { zfd } from 'zod-form-data';
 
-// const createTransaction = async (data: Record<string, any>) => {
-//   console.log('data', data);
-// };
-
 export const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
   const schema = zfd.formData({
-    originAccountId: zfd.text(z.string().uuid()),
-    destinationAccountId: zfd.text(z.string().uuid()),
+    originAccountId: zfd.text(),
+    destinationAccountId: zfd.text(),
     value: zfd.numeric(z.number().min(0)),
   });
   try {
@@ -46,10 +42,10 @@ export default function TransactionPage() {
      */
     <form method="post" action="/transactions/new" id="new-transaction">
       <p>
-        <label htmlFor="origin_account_id">Origin:</label>
+        <label htmlFor="originAccountId">Origin:</label>
         <select
-          name="origin_account_id"
-          id="origin_account_id"
+          name="originAccountId"
+          id="originAccountId"
           form="new-transaction"
         >
           {accounts.map((account) => (
@@ -60,10 +56,10 @@ export default function TransactionPage() {
         </select>
       </p>
       <p>
-        <label htmlFor="destination_account_id">Destination:</label>
+        <label htmlFor="destinationAccountId">Destination:</label>
         <select
-          name="destination_account_id"
-          id="destination_account_id"
+          name="destinationAccountId"
+          id="destinationAccountId"
           form="new-transaction"
         >
           {accounts.map((account) => (
