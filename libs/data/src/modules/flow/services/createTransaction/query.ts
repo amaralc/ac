@@ -1,10 +1,19 @@
 import { gql } from 'graphql-request';
 
-export const getAccountsQuery = gql`
-  query GetAccounts($agentName: String!) {
-    accounts(where: { agent: { name: { _eq: $agentName } } }) {
+export const createTransactionQuery = gql`
+  mutation CreateTransaction(
+    $originAccountId: uuid!
+    $destinationAccountId: uuid!
+    $value: numeric!
+  ) {
+    insert_transactions_one(
+      object: {
+        origin_account_id: $originAccountId
+        destination_account_id: $destinationAccountId
+        value: $value
+      }
+    ) {
       id
-      name
     }
   }
 `;
