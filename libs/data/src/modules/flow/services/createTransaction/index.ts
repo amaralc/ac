@@ -10,11 +10,10 @@ export const createTransaction = async ({
   value: number;
 }): Promise<ICreateTransactionResponseData['transaction'] | null> => {
   try {
-    const endpoint = 'https://viable-deer-83.hasura.app/v1/graphql';
+    const endpoint = process.env['HASURA_ENDPOINT'] as string;
     const headers = {
       'content-type': 'application/json',
-      'x-hasura-admin-secret':
-        'ZFxzST0xs8DCFXKcNhDHNUksXThbzS9hIz2tKbbVcoCWY9SZMTXvVBa66yGx4KdN',
+      'x-hasura-admin-secret': process.env['HASURA_ADMIN_SECRET'] as string,
     };
     const graphqlQuery = {
       operationName: 'CreateTransaction',
