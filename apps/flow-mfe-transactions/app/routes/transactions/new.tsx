@@ -15,7 +15,6 @@ export const action: ActionFunction = async ({ request }) => {
   });
   try {
     const formData = schema.parse(data);
-    console.log('newTransaction', formData);
     await createTransaction(formData);
     return null;
   } catch (e) {
